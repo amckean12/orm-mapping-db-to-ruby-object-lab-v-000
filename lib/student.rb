@@ -44,9 +44,12 @@ class Student
       FROM students
       WHERE grade = 9
     SQL
-    DB[:conn].execute(sql, name).map do |row|
+    DB[:conn].execute(sql, grade).map do |row|
+      counter = 0
      self.new_from_db(row)
-   end.first
+     counter = counter + 1
+   end
+   counter
   end
 
   def save
