@@ -78,7 +78,7 @@ class Student
       SELECT *
       FROM students
       WHERE grade = 10
-      ORDER BY sudents.id
+      ORDER BY students.id
       LIMIT ?
     SQL
 
