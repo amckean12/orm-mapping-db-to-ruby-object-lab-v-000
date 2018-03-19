@@ -37,19 +37,15 @@ class Student
   end
 
   def self.count_all_students_in_grade_9(name)
-    # find the student in the database given a name
-    # return a new instance of the Student class
     sql = <<-SQL
-      SELECT *
+      SELECT COUNT(*)
       FROM students
       WHERE grade = 9
     SQL
-    DB[:conn].execute(sql, grade).map do |row|
-      counter = 0
+
+    DB[:conn].execute(sql).map do |row|
      self.new_from_db(row)
-     counter = counter + 1
    end
-   counter
   end
 
   def save
